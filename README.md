@@ -1,19 +1,19 @@
 # ProfileView
 
-A simple, responsive frontend application that displays user profiles and allows adding/removing them from favorites.
+A simple modern, responsive frontend app for browsing and favoriting user profiles. Built with vanilla JS, SCSS, and a mobile-first UI approach.
 
 ## Features
 - Profile overview grid
 - Single profile detail view
 - Favorite/unfavorite profiles
-- Fully responsive design (mobile-friendly)
+- Clean, modern design using SCSS (modular)
 - API-based architecture with no backend
 
 ## Tech Stack
 - HTML5
-- CSS3
-- JavaScript (vanilla)
-- [http-server](https://www.npmjs.com/package/http-server) (for local development)
+- SCSS (compiled to CSS)
+- Vanilla JavaScript (ES Modules)
+- Local development server via [http-server](https://www.npmjs.com/package/http-server) 
 
 ## Installation & Running Locally
 
@@ -21,13 +21,19 @@ A simple, responsive frontend application that displays user profiles and allows
 ```bash
   npm install
 ```
+### 2. (Optional) Start SCSS watch during development
+This will automatically compile `styles.scss` to `styles.css` when you save changes.
 
-2. Start the server:
+```bash
+  npm run sass:watch
+```
+
+3Start the server:
 ```bash
   npx http-server ./ -o -p 9999
 ```
 
-3. Open [http://localhost:9999](http://localhost:9999) in your browser.
+3Open [http://localhost:9999](http://localhost:9999) in your browser.
 
 > ⚠️ Do **not** open the HTML files directly via `file://` as API requests will fail due to CORS restrictions.
 
@@ -37,14 +43,24 @@ A simple, responsive frontend application that displays user profiles and allows
 
 ## Project Structure
 ```
-/bd-frontend-assessment
-├── index.html
-├── profile.html
-├── css/
-│   └── styles.css
-├── js/
-│   ├── main.js
-│   ├── profile.js
-│   └── api.js
-└── README.md
+/profile-view
+
+css/
+├── _variables.scss
+├── _mixins.scss
+├── _components.scss
+├── styles.scss       # main SCSS file
+└── styles.css        # compiled output
+
+js/
+├── api.js
+└── main.js
+
+index.html
+profile.html
+package.json
 ```
+## Design Notes
+- Uses modern typography and layout practices
+- Built mobile-first with modular SCSS and clean class structure
+- Includes custom media query mixins and CSS variables for theme control

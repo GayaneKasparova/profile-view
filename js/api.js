@@ -4,7 +4,6 @@ const API_BASE = "https://fa.bdtechnologies.ch/api/v1";
 /**
  * Logs an error and returns a fallback value.
  */
-
 function handleFetchError(error, fallbackValue) {
     console.error("Error fetching data:", error);
     return fallbackValue;

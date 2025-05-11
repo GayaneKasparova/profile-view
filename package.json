@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Frontend assessment app for viewing and liking user profiles.",
   "scripts": {
-    "start": "http-server ./ -o -p 9999"
+    "start": "http-server ./ -o -p 9999",
+    "sass:watch": "sass --watch ./css/styles.scss:./css/styles.css"
   },
   "devDependencies": {
     "http-server": "^14.1.1",
