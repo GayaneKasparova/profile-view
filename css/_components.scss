@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: $grid-gap;
-  padding: 1rem;
+  padding: 1rem 0 2rem;
 
   @include respond-min($breakpoint-sm) {
     grid-template-columns: repeat(2, 1fr);
@@ -29,7 +29,7 @@
   aspect-ratio: 1 / 1.2;
 
   &:hover {
-    transform: scale(1.02);
+    transform: scale(1.04);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
   }
 
