@@ -1,10 +1,11 @@
-@import "_variables";
-@import "_mixins";
+@import url(./_mixins.scss);
+@import url(./_variables.scss);
 
 .profile-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: var(--grid-gap);
+  gap: $grid-gap;
+  padding: 1rem;
 
   @include respond-min($breakpoint-sm) {
     grid-template-columns: repeat(2, 1fr);
@@ -20,30 +21,90 @@
 .profile-card {
   display: flex;
   flex-direction: column;
-  border-radius: var(--card-radius);
+  border-radius: $card-radius;
   overflow: hidden;
-  box-shadow: var(--shadow-default);
+  background-color: $bg-card-color;
+  box-shadow: $shadow-default;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  aspect-ratio: 1 / 1.2;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+  }
 
   .avatar-wrapper {
     position: relative;
-    height: 100%;
-
+    background-color: $muted-color;
+    height: calc(100% - 5rem);
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .favorite-btn {
       position: absolute;
-      top: 6px;
-      right: 6px;
+      top: 8px;
+      right: 8px;
       z-index: 1;
+      background: white;
+      color: $heart-color;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: background 0.2s ease, transform 0.2s ease;
+
+      &:hover {
+        background: $heart-color;
+        color: white;
+        transform: scale(1.1);
+      }
+
+      &.active {
+        background: $heart-color;
+        color: white;
+      }
     }
   }
 
-  .card-body {
-    padding: 1rem;
-    text-align: center;
+  .profile-info {
+    height: 5rem;
+    padding: 0 1rem;
+    .profile-name-wrapper {
+      display: flex;
+      margin: 0.8rem 0 0;
+      align-items: center;
+      justify-content: space-between;
+      h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+    }
+    .profile-name {
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .profile-meta {
+      display: flex;
+      margin-top: 0.8rem;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .9rem;
+      p {
+        margin: 0;
+      }
+    }
   }
 }

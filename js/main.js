@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         for (let profile of data?.profiles) {
             const card = document.createElement('div');
             card.className = 'profile-card';
+            grid.appendChild(card);
             card.innerHTML = `<div class="avatar-wrapper">
                                 <img src="${profile.avatar}"
                                      alt="${profile.name}'s avatar"
@@ -25,10 +26,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                                      loading="lazy"/>
                                 <button class="favorite-btn" aria-label="Add to favorites">♡</button>
                               </div>
-                              <div class="card-body">
-                                <h3 class="profile-name">${profile.name}</h3>
+                              <div class="profile-info">
+                                <div class="profile-name-wrapper">
+                                    <h3 class="profile-name" title="${profile.name}">${profile.name}</h3>
+                                     ${profile.age && `<h3>   (${profile.age})</h3>`}
+                                </div>
+                                <div class="profile-meta">
+                                  <p> ${ profile.city && `📍${profile.city}`}</p>
+                                   ${ profile.relationship_status && `<p>💑 ${profile.relationship_status}</p>`}
+                                </div>
                               </div>`;
-            grid.appendChild(card);
         }
     }
 });

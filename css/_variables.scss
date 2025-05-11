@@ -1,9 +1,23 @@
-:root {
-  --grid-gap: 16px;
-  --card-radius: 6px;
-  --shadow-default: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+/* Font */
+$font-base: 'Inter', sans-serif;
 
+/* Spacing & Effects */
+$grid-gap: 24px;
+$card-radius: 8px;
+$shadow-default: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+/* Breakpoints */
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-xl: 1200px;
+
+/* Color Palette */
+$bg-color: #f8f9fa;
+$bg-card-color: #ffffff;
+$text-color: #1e1e1e;
+$accent-color: #4c6ef5;
+$accent-hover-color: #3b5bdb;
+$heart-color: #e11d48;
+$heart-hover-color: #be123c;
+$muted-color: #f0f0f0;
+
