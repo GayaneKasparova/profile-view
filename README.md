@@ -46,9 +46,10 @@ This will automatically compile `styles.scss` to `styles.css` when you save chan
 /profile-view
 
 css/
-├── _variables.scss
-├── _mixins.scss
+├── _base.scss
 ├── _components.scss
+├── _mixins.scss
+├── _variables.scss
 ├── styles.scss       # main SCSS file
 └── styles.css        # compiled output
 
