@@ -1,0 +1,9 @@
+:root {
+  --grid-gap: 16px;
+  --card-radius: 6px;
+  --shadow-default: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-xl: 1200px;

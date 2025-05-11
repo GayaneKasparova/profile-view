@@ -1,0 +1,49 @@
+@import "_variables";
+@import "_mixins";
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--grid-gap);
+
+  @include respond-min($breakpoint-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include respond-min($breakpoint-md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include respond-min($breakpoint-xl) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-default);
+
+  .avatar-wrapper {
+    position: relative;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .favorite-btn {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      z-index: 1;
+    }
+  }
+
+  .card-body {
+    padding: 1rem;
+    text-align: center;
+  }
+}
