@@ -208,11 +208,6 @@ h1::after {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background 0.2s ease, transform 0.2s ease;
 }
-.profile-card .avatar-wrapper .favorite-btn:hover {
-  background: #e11d48;
-  color: white;
-  transform: scale(1.1);
-}
 .profile-card .avatar-wrapper .favorite-btn.active {
   background: #e11d48;
   color: white;
@@ -247,6 +242,12 @@ h1::after {
 }
 .profile-card .profile-info .profile-meta p {
   margin: 0;
+}
+
+html.no-touch .favorite-btn:hover {
+  background: #e11d48;
+  color: white;
+  transform: scale(1.1);
 }
 
 /*# sourceMappingURL=styles.css.map */

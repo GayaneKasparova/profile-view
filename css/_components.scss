@@ -63,12 +63,6 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       transition: background 0.2s ease, transform 0.2s ease;
 
-      &:hover {
-        background: $heart-color;
-        color: white;
-        transform: scale(1.1);
-      }
-
       &.active {
         background: $heart-color;
         color: white;
@@ -107,5 +101,13 @@
         margin: 0;
       }
     }
+  }
+}
+
+html.no-touch {
+  .favorite-btn:hover {
+    background: $heart-color;
+    color: white;
+    transform: scale(1.1);
   }
 }

@@ -51,16 +51,16 @@ export async function renderProfiles(profiles) {
                     ${isFavorite ? '♥' : '♡'}
             </button>
           </div>
-          <div class="profile-info">
+          <a class="profile-info" href="/profile?id=${profile.id}">
             <div class="profile-name-wrapper">
-              <a href="/profile?id=${profile.id}" class="profile-name" title="${profile.name}"><h3>${profile.name}</h3></a>
+              <h3 class="profile-name" title="${profile.name}">${profile.name}</h3>
               ${ageHTML}
             </div>
             <div class="profile-meta">
               <p>${cityHTML}</p>
               ${relationshipHTML}
             </div>
-          </div>
+          </a>
         `;
     }
 
