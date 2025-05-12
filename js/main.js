@@ -9,7 +9,8 @@ import { showLoader, hideLoader } from './loader.js';
 document.addEventListener('DOMContentLoaded', async () => {
     showLoader();
     const data = await getProfiles();
-    await renderProfiles(data.profiles || []);
+    const fallback =  `<p>Oooops! No profiles available at the moment.</p>`;
+    await renderProfiles(data.profiles || [], fallback);
     hideLoader();
 });
 

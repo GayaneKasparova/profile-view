@@ -55,15 +55,24 @@ css/
 
 js/
 ├── api.js
-├── loader
+├── auth.js
+├── favorites.js
+├── loader.js
 ├── main.js
+├── profile.js
 └── render.js
 
 index.html
+favorites.html
 profile.html
+
+favicon.ico
 package.json
+vercel.json
 ```
 ## Design Notes
 - Uses modern typography and layout practices
 - Built mobile-first with modular SCSS and clean class structure
 - Includes custom media query mixins and CSS variables for theme control
+
+

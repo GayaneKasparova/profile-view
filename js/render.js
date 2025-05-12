@@ -1,5 +1,5 @@
 import { getFavorites, addFavorite, removeFavorite } from './api.js';
-import { getUserId } from './main.js';
+import { getUserId } from './auth.js';
 
 
 /**
@@ -7,6 +7,7 @@ import { getUserId } from './main.js';
  * If no profiles are provided, displays a fallback message.
  *
  * @param {Array} profiles - Array of profile objects to be rendered.
+ * @param {HTMLElement} fallback - The fallback message element to display when there are no profiles to render.
  * Each profile object should include:
  *   - id {number}: Unique identifier for the profile.
  *   - name {string}: Name of the profile.
@@ -16,13 +17,10 @@ import { getUserId } from './main.js';
  *   - relationship_status {string} [optional]: Relationship status of the profile.
  */
 
-export async function renderProfiles(profiles) {
+export async function renderProfiles(profiles, fallback) {
     const grid = document.querySelector('.profile-grid');
 
     if (!profiles.length) {
-        const fallback = document.createElement('div');
-        fallback.className = 'fallback-message';
-        fallback.textContent = 'Oooops! No profiles available at the moment.';
         grid.appendChild(fallback);
         return;
     }
