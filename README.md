@@ -8,6 +8,8 @@ A simple modern, responsive frontend app for browsing and favoriting user profil
 - Favorite/unfavorite profiles
 - Clean, modern design using SCSS (modular)
 - API-based architecture with no backend
+## Live Demo
+[https://profile-view-ashen.vercel.app](https://profile-view-ashen.vercel.app)
 
 ## Tech Stack
 - HTML5
