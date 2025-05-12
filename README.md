@@ -55,7 +55,9 @@ css/
 
 js/
 ├── api.js
-└── main.js
+├── loader
+├── main.js
+└── render.js
 
 index.html
 profile.html

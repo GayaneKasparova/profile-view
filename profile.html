@@ -1,10 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8"/>
+    <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="A simple, responsive frontend app to browse user profiles. Supports adding/removing profiles from favorites and provides a mobile-friendly layout with seamless profile management.">
+    <meta name="keywords"
+          content="profiles, user management, favorites, API app, responsive design, HTML, JavaScript, CSS">
+    <link rel="icon" href="./favicon.ico" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap">
+    <!-- Linking external CSS file for styling -->
+    <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">All Profiles</a></li>
+                <li><a href="/favorites">Favorite Profiles</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main class="container">
+        <!-- Loader to indicate application is processing -->
+        <div id="loader" class="loader" aria-label="Loading..."></div>
+        <!-- Profile detail section, initially hidden -->
+        <section id="profile-detail" class="profile-card large" style="display: none;"></section>
+    </main>
+
+    <footer>Made with ♥ by Gayane</footer>
+
+    <!-- Linking the main JavaScript module -->
+    <script type="module" src="js/profile.js"></script>
 </body>
 </html>

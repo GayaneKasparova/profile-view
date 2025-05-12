@@ -11,6 +11,17 @@ html, body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 body {
   background: linear-gradient(to right top, rgba(255, 148, 148, 0.7019607843), #dcdcf5);
   min-height: 100svh;
@@ -19,14 +30,95 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #1e1e1e;
 }
+@media (max-width: 480px) {
+  body {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  body footer {
+    display: none;
+  }
+}
+
+header {
+  position: sticky;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(183, 59, 86, 0.9882352941);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px 4px 0 0;
+}
+@media (min-width: 480px) {
+  header {
+    top: 0;
+    bottom: unset;
+    border-radius: 0 0 4px 4px;
+  }
+}
+header nav ul {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 1.5rem;
+}
+@media (min-width: 480px) {
+  header nav ul {
+    justify-content: end;
+  }
+}
+header nav ul li {
+  color: #f0f0f0;
+  font-size: 1.2rem;
+  letter-spacing: 0.03rem;
+  transition: all 0.2s ease;
+}
+header nav ul li:hover {
+  transform: scale(1.05);
+  font-weight: 500;
+}
+header nav ul li.active {
+  font-weight: bold;
+}
+header nav ul li a {
+  display: block;
+  padding: 0.5rem 1rem;
+}
 
 main {
-  padding: 1rem 2rem;
+  min-height: calc(100svh - 7rem);
+  padding: 1rem 4rem;
+}
+
+footer {
+  padding: 0.25rem 0;
+  text-align: center;
+  background: rgba(170, 115, 127, 0.2117647059);
+  color: #4c4d4f;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+h1 {
+  display: inline-block;
+  position: relative;
+  letter-spacing: 0.025rem;
+  font-weight: 500;
+}
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: -0.1rem;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(183, 59, 86, 0.9882352941);
+  border-radius: 2px;
 }
 
 .loader {
@@ -51,7 +143,7 @@ main {
   gap: 24px;
   padding: 1rem 0 2rem;
 }
-@media (min-width: 576px) {
+@media (min-width: 480px) {
   .profile-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -127,12 +219,13 @@ main {
 .profile-card .profile-info .profile-name-wrapper {
   display: flex;
   margin: 0.8rem 0 0;
+  padding: 0 0.25rem;
   align-items: center;
   justify-content: space-between;
 }
 .profile-card .profile-info .profile-name-wrapper h3 {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 500;
 }
 .profile-card .profile-info .profile-name {

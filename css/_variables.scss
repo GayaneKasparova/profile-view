@@ -7,7 +7,7 @@ $card-radius: 8px;
 $shadow-default: 0 4px 6px rgba(0, 0, 0, 0.1);
 
 /* Breakpoints */
-$breakpoint-sm: 576px;
+$breakpoint-sm: 480px;
 $breakpoint-md: 768px;
 $breakpoint-xl: 1200px;
 
@@ -15,9 +15,10 @@ $breakpoint-xl: 1200px;
 $bg-color: #f8f9fa;
 $bg-card-color: #ffffff;
 $text-color: #1e1e1e;
-$accent-color: #4c6ef5;
-$accent-hover-color: #3b5bdb;
+$accent-color: #b73b56fc;
 $heart-color: #e11d48;
 $heart-hover-color: #be123c;
 $muted-color: #f0f0f0;
+
+$main-gradient: linear-gradient(to right top, #ff9494b3, #dcdcf5);
 

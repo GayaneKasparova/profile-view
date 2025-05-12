@@ -3,3 +3,10 @@
     @content;
   }
 }
+
+@mixin respond-max($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+

@@ -82,11 +82,12 @@
     .profile-name-wrapper {
       display: flex;
       margin: 0.8rem 0 0;
+      padding: 0 .25rem;
       align-items: center;
       justify-content: space-between;
       h3 {
         margin: 0;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-weight: 500;
       }
     }
