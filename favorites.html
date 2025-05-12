@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>♡ Favorites</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="A simple, responsive frontend app to browse user profiles. Supports adding/removing profiles from favorites and provides a mobile-friendly layout with seamless profile management.">
+    <meta name="keywords"
+          content="profiles, user management, favorites, API app, responsive design, HTML, JavaScript, CSS">
+    <link rel="icon" href="./favicon.ico" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap">
+    <!-- Linking external CSS file for styling -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">All Profiles</a></li>
+                <li class="active"><a href="/favorites">Favorite Profiles</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Favorite Profiles</h1>
+        <!-- Loader for visual feedback during profile data fetch -->
+        <div id="loader" class="loader" aria-label="Loading profiles..."></div>
+        <!-- Grid layout to display user profiles -->
+        <section class="profile-grid"></section>
+    </main>
+
+    <footer>Made with ♥ by Gayane</footer>
+    <!-- JavaScript module for initializing the application -->
+    <script src="./js/favorites.js" type="module"></script>
+</body>
+</html>
