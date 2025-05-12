@@ -69,9 +69,14 @@ header nav ul {
 }
 header nav ul li {
   color: #f0f0f0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   letter-spacing: 0.03rem;
   transition: all 0.2s ease;
+}
+@media (min-width: 768px) {
+  header nav ul li {
+    font-size: 1.2rem;
+  }
 }
 header nav ul li:hover {
   transform: scale(1.05);
@@ -87,7 +92,7 @@ header nav ul li a {
 
 main {
   min-height: calc(100svh - 7rem);
-  padding: 1rem 4rem;
+  padding: 1rem 2rem;
 }
 
 footer {

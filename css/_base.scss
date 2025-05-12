@@ -63,9 +63,13 @@ header {
 
       li {
         color: $muted-color;
-        font-size: 1.2rem;
+        font-size: 1rem;
         letter-spacing: .03rem;
         transition: all .2s ease;
+
+        @include respond-min($breakpoint-md) {
+          font-size: 1.2rem;
+        }
 
         &:hover {
           transform: scale(1.05);
@@ -87,7 +91,7 @@ header {
 
 main {
   min-height: calc(100svh - 7rem);
-  padding: 1rem 4rem;
+  padding: 1rem 2rem;
 }
 
 footer {
