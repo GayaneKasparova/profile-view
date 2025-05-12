@@ -90,6 +90,18 @@ function attachFavoriteToggleListeners() {
                 btn.classList.remove('active');
                 btn.innerHTML = '♡';
                 btn.title = 'Add to favorites';
+
+                // If on favorites.html, remove the card from DOM
+                if (window.location.pathname.includes('favorites')) {
+                    btn.closest('.profile-card').remove();
+
+                    // If no cards left, show empty state
+                    if (document.querySelectorAll('.profile-card').length === 0) {
+                        const grid = document.querySelector('.profile-grid');
+                        grid.innerHTML = '<p class="fallback-message">No favorites yet 💔</p>';
+                    }
+                }
+
             } else {
                 await addFavorite(profileId);
                 btn.classList.add('active');
