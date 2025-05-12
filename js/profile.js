@@ -1,33 +1,10 @@
-import { getProfile } from './api.js';
-import { showLoader, hideLoader } from './loader.js';
+import {getProfile} from './api.js';
+import {showLoader, hideLoader} from './loader.js';
+import {renderProfile} from "./render.js";
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 const container = document.getElementById('profile-detail');
-
-/**
- * Renders a user's profile into the container element.
- *
- * @param {Object} profile - The profile object to render.
- * @param {string} profile.avatar - URL of the profile avatar image.
- * @param {string} profile.name - Name of the user.
- * @param {number} profile.age - Age of the user.
- * @param {string} profile.city - City of the user.
- * @param {string} profile.relationship_status - Relationship status of the user.
- */
-function renderProfile(profile) {
-    container.innerHTML = `
-    <div class="avatar-wrapper">
-      <img src="${profile.avatar}" alt="${profile.name}" width="300" height="300" loading="lazy" />
-    </div>
-    <div class="profile-info">
-      <h2 class="profile-name">${profile.name}, ${profile.age}</h2>
-      <p>📍 ${profile.city}</p>
-      <p>💑 ${profile.relationship_status}</p>
-    </div>
-  `;
-}
-
 
 document.addEventListener('DOMContentLoaded', async () => {
     /**
@@ -45,9 +22,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     showLoader();
     try {
         const profile = await getProfile(id);
-        if (!profile) throw new Error("Not found");
-        renderProfile(profile);
-        container.style.display = 'block';
+        if (!profile) {
+            container.innerHTML = `<p class="error">Profile not found.</p>`;
+            container.style.display = 'block';
+            hideLoader();
+            return;
+        }
+        await renderProfile(profile);
+        const name = document.getElementById('name')?.dataset?.name;
+        document.getElementById('flirt-btn').addEventListener('click', () => {
+            alert('You flirted with ' + name);
+        })
     } catch (err) {
         container.innerHTML = '<p class="error">Profile not found.</p>';
         container.style.display = 'block';

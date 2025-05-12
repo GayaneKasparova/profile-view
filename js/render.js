@@ -7,7 +7,7 @@ import { getUserId } from './auth.js';
  * If no profiles are provided, displays a fallback message.
  *
  * @param {Array} profiles - Array of profile objects to be rendered.
- * @param {HTMLElement} fallback - The fallback message element to display when there are no profiles to render.
+ * @param {HTMLElement|string} fallback - The fallback message element to display when there are no profiles to render.
  * Each profile object should include:
  *   - id {number}: Unique identifier for the profile.
  *   - name {string}: Name of the profile.
@@ -33,7 +33,7 @@ export async function renderProfiles(profiles, fallback) {
         card.className = 'profile-card';
         const isFavorite = favorites.includes(profile.id);
 
-        const ageHTML = profile.age ? `<h3>(${profile.age})</h3>` : '';
+        const ageHTML = profile.age ? `<span>(${profile.age})</span>` : '';
         const cityHTML = profile.city ? `📍 ${profile.city}` : '';
         const relationshipHTML = profile.relationship_status ? `<p>💑 ${profile.relationship_status}</p>` : '';
 
@@ -65,6 +65,41 @@ export async function renderProfiles(profiles, fallback) {
     attachFavoriteToggleListeners();
 }
 
+/**
+ * Injects a user's profile into the container element.
+ *
+ * @param {Object} profile - The profile object to render.
+ * @param {string} profile.id - Profile id.
+ * @param {string} profile.avatar - URL of the profile avatar image.
+ * @param {string} profile.name - Name of the user.
+ * @param {number} profile.age - Age of the user.
+ * @param {string} profile.city - City of the user.
+ * @param {string} profile.relationship_status - Relationship status of the user.
+ */
+
+export async function renderProfile(profile) {
+    document.getElementById('avatar').src = profile.avatar;
+    document.getElementById('avatar').alt = `${profile.name}'s avatar`;
+
+    document.getElementById('name').textContent = `${profile.name}`;
+    document.getElementById('name').dataset.name = `${profile.name}`;
+    document.getElementById('age').textContent = profile.age ? `(${profile.age})` : '';
+    document.getElementById('city').textContent = `📍 ${profile.city}`;
+    document.getElementById('status').textContent = `💑 ${profile.relationship_status}`;
+
+    const uid = await getUserId();
+    const favorites = uid ? await getFavorites(uid) : [];
+    const isFavorite = favorites.includes(profile.id);
+    const favoriteBtn = document.getElementById('favorite-btn');
+    favoriteBtn.textContent =  isFavorite ? '♥' : '♡';
+    if (isFavorite) {
+        favoriteBtn.classList.add('active');
+    }
+    favoriteBtn.dataset.id = profile.id;
+    favoriteBtn.title = isFavorite ? 'Remove from favorites' : 'Add to favorites';
+    attachFavoriteToggleListeners();
+}
+
 
 /**
  * Attaches event listeners to all favorite toggle buttons on the page.
@@ -79,7 +114,7 @@ export async function renderProfiles(profiles, fallback) {
  * - Updates the button's inner HTML (♥ for active, ♡ for inactive).
  * - Adjusts the button's title attribute accordingly.
  */
-function attachFavoriteToggleListeners() {
+export function attachFavoriteToggleListeners() {
     document.querySelectorAll('.favorite-btn').forEach(btn => {
         btn.addEventListener('click', async () => {
             const profileId = Number(btn.dataset.id);

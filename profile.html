@@ -11,7 +11,7 @@
     <link rel="icon" href="./favicon.ico" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap">
     <!-- Linking external CSS file for styling -->
-    <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="styles/styles.css"/>
 </head>
 <body>
     <header>
@@ -27,7 +27,26 @@
         <!-- Loader to indicate application is processing -->
         <div id="loader" class="loader" aria-label="Loading..."></div>
         <!-- Profile detail section, initially hidden -->
-        <section id="profile-detail" class="profile-card large" style="display: none;"></section>
+        <section id="profile-detail" class="profile-card large">
+            <div class="avatar-wrapper">
+                <img id="avatar" alt="User avatar" width="300" height="300" loading="lazy" src=""/>
+                <button id="favorite-btn" class="favorite-btn">
+                </button>
+            </div>
+
+            <div class="profile-info">
+                <div class="profile-name-wrapper">
+                    <h2 class="profile-name" id="name"></h2>
+                    <span class="profile-age" id="age"></span>
+                </div>
+                <p id="city"></p>
+                <p id="status"></p>
+                <p id="about">I’m here to meet kind people and share good vibes 🌸. Let’s talk if you're curious!</p>
+
+                <button id="flirt-btn" class="action-button">Flirt</button>
+            </div>
+        </section>
+
     </main>
 
     <footer>Made with ♥ by Gayane</footer>
