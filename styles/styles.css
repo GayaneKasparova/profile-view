@@ -213,9 +213,10 @@ h1::after {
 }
 .profile-card.large {
   margin-top: 2rem;
+  padding-bottom: 1rem;
 }
 .profile-card.large .avatar-wrapper {
-  aspect-ratio: 3/2.5;
+  aspect-ratio: 1.1/1;
   height: auto;
 }
 .profile-card.large .profile-info {
